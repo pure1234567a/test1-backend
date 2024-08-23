@@ -39,31 +39,38 @@ public class Controller {
 
         personalDetailService.savePersonalDetail(pd);
         workDetailService.saveWorkDetail(wd);
+
         return ResponseEntity.ok();
     }
 
     @PostMapping("/read")
     public PersonalDetail read(@RequestBody RequestDetailModel req) {
+
         PersonalDetail pd = new PersonalDetail();
         pd.setEmployeeId(req.getEmployeeId());
+
         return personalDetailService.findById(pd);
     }
 
     @PostMapping("/searchUpdatePersonal")
     public PersonalDetail searchUpdatePersonal(@RequestBody RequestDetailModel req) {
+
         PersonalDetail pd = new PersonalDetail();
         pd.setEmployeeId(req.getEmployeeId());
+
         return personalDetailService.findById(pd);
     }
 
     @PostMapping("/updatePersonal")
     public PersonalDetail updatePersonalDetail(@RequestBody RequestDetailModel req) {
+
         PersonalDetail pd = new PersonalDetail();
         pd.setEmployeeId(req.getEmployeeId());
         pd.setName(req.getName());
         pd.setIdCard(req.getIdCard());
         pd.setBirthDate(req.getBirthDate());
         pd.setMobileNo(req.getMobileNo());
+
         return personalDetailService.updatePersonalDetail(pd);
     }
 
@@ -71,6 +78,7 @@ public class Controller {
     public PersonalDetail searchUpdatePersonal(@RequestBody RequestDetailModel req) {
         PersonalDetail pd = new PersonalDetail();
         pd.setEmployeeId(req.getEmployeeId());
+
         return personalDetailService.findById(pd);
     }
 
@@ -82,6 +90,7 @@ public class Controller {
         wd.setDepartment(req.setDepartment());
         wd.setStartDate(req.getStartDate());
         wd.setTerminateDate(req.getTerminateDate());
+
         return personalDetailService.updatePWorkDetail(wd);
     }
 
